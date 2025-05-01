@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Telegram с анимированным фоном</title>
+  <style>
+    /* Подключение шрифта */
+    @font-face {
+      font-family: 'Trade Gothic Pro Bold Condensed';
+      src: url('path/to/your/font/Trade_Gothic_Pro_Bold_Condensed_20.woff2') format('woff2'),
+           url('path/to/your/font/Trade_Gothic_Pro_Bold_Condensed_20.woff') format('woff');
+      font-weight: bold;
+      font-style: normal;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Trade Gothic Pro Bold Condensed', sans-serif;
+    }
+
+    /* Видео фон */
+    #background-video {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      min-width: 100%;
+      min-height: 100%;
+      z-index: -1;
+      object-fit: cover;
+      opacity: 0;
+      animation: fadeInVideo 3s ease forwards;
+    }
+
+    @keyframes fadeInVideo {
+      to {
+        opacity: 1;
+      }
+    }
+
+    /* Контейнер для кнопок */
+    .content {
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 80px; /* Увеличенное расстояние между кнопками */
+    }
+
+    /* Общий стиль для кнопок */
+    .btn {
+      background-color: rgba(0, 136, 204, 0.9);
+      color: white;
+      padding: 20px 40px;
+      font-size: 22px;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      text-decoration: none;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      opacity: 0;
+      animation: fadeInButton 2s ease 2s forwards;
+      transform: translateY(20px);
+    }
+
+    .btn:hover {
+      background-color: rgba(0, 119, 179, 0.95);
+    }
+
+    @keyframes fadeInButton {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Видеофон -->
+  <video autoplay muted loop id="background-video" playsinline>
+    <source src="https://videocdn.cdnpk.net/videos/71797879-3f84-5f9a-84c7-55048650d774/horizontal/previews/clear/large.mp4?token=exp=1746111634~hmac=57ffe75885af08ca6c72f8c7a3827f18a6ee3afb80f78c5aadcf7692ddf0a99f" type="video/mp4">
+    Ваш браузер не поддерживает HTML5 видео.
+  </video>
+
+  <!-- Контент с кнопками -->
+  <div class="content">
+    <a href="https://t.me/caqcu" target="_blank" class="btn">BIO</a>
+    <a href="https://t.me/cqwex" target="_blank" class="btn">ADAPTER</a>
+    <a href="https://t.me/prisesign" target="_blank" class="btn">PRISE SIGN</a>
+  </div>
+
+</body>
+</html>
+
